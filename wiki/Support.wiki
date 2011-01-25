@@ -1,4 +1,13 @@
-#support information for Chrome Extension Minimalist Gmail
+#support information and Frequently Asked Questions
+
+= F.A.Q =
+
+  * Will you port it to Firefox/Safari/etc...
+    * Not in the foreseeable future. I'm a full-time student and barely have the time to support _one_ browser. Chrome is my browser of choice as a user and as a developer.
+  * It's not working!
+    * Scroll down.
+  * I have an idea!
+    * Scroll down.
 
 = Support =
 
@@ -16,6 +25,12 @@
   # Check the Issues Tracker (link above)
   # If it's a known issue, star it so that I know you're waiting for a fix and to be notified when there are solutions
   # If it's not a known issue, click "New Issue" to let me know what's going on.
+
+=== Ideas? ===
+
+  # Check the Issues Tracker (It's for feature requests too)
+  # If it's a previously requested feature, star it so that I know you're waiting for it too and to be notified of progress
+  # Otherwise, click "New Issue" and tell me about your idea. (delete the default text and make sure to label it as "Type-Enhancement")
 
 === Immediate question? ===
 
