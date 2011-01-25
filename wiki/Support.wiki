@@ -1,0 +1,23 @@
+#support information for Chrome Extension Minimalist Gmail
+
+= Support =
+
+=== Installation ===
+
+  # Go to https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb
+  # Click Install
+  # Let download
+  # Confirm Install
+  # (Options page appears)
+  # Select desired options (changes saved automatically)
+  # *Refresh Gmail tab*
+
+=== Bugs? ===
+  # Check the Issues Tracker (link above)
+  # If it's a known issue, star it so that I know you're waiting for a fix and to be notified when there are solutions
+  # If it's not a known issue, click "New Issue" to let me know what's going on.
+
+=== Immediate question? ===
+
+  * Email me: ansel@anselsantosa.com
+  * Ping me on Twitter: @anstosa
