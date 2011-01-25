@@ -1,0 +1,637 @@
+<html>
+<head>
+	<title>Minimalist Gmail Options</title>
+	<link type="text/css" rel="stylesheet" href="css/options.css" />
+	<link type="text/css" rel="stylesheet" href="css/picker/colorpicker.css" />
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/options.js"></script>
+	<script type="text/javascript" src="js/picker/colorpicker.js"></script>
+	<script type="text/javascript" src="js/picker/eye.js"></script>
+	<script type="text/javascript" src="js/picker/utils.js"></script>
+	<script type="text/javascript">
+		(function($){
+			var initLayout = function() {
+				var bottom = localStorage["BTNbottom"];
+				var top = localStorage["BTNtop"];
+				$('#BTNcolor').ColorPicker({
+					color: localStorage["BTNcolor"],
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange: function (hsb, hex, rgb) {
+						$('#BTNcolor div').css('backgroundColor', '#' + hex);
+						$('#testButton').css('color', '#' + hex);
+						localStorage["BTNcolor"] = "#" + hex;
+					}
+				});
+				$('#BTNborder').ColorPicker({
+					color: localStorage["BTNborder"],
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange: function (hsb, hex, rgb) {
+						$('#BTNborder div').css('backgroundColor', '#' + hex);
+						$('#testButton').css('border-color', '#' + hex);
+						localStorage["BTNborder"] = "#" + hex;
+					}
+				});
+				$('#BTNbottom').ColorPicker({
+					color: localStorage["BTNbottom"],
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange: function (hsb, hex, rgb) {
+						$('#BTNbottom div').css('backgroundColor', '#' + hex);
+						$('#testButton').css('background', '-webkit-gradient(linear,0% 40%,0% 70%,from(#' + hex + '),to(' + top + '))');
+						bottom = "#" + hex;
+						localStorage["BTNbottom"] = "#" + hex;
+					}
+				});
+				$('#BTNtop').ColorPicker({
+					color: localStorage["BTNtop"],
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange: function (hsb, hex, rgb) {
+						$('#BTNtop div').css('backgroundColor', '#' + hex);
+						$('#testButton').css('background', '-webkit-gradient(linear,0% 40%,0% 70%,from(' + bottom + '),to(#' + hex + '))');
+						top = "#" + hex;
+						localStorage["BTNtop"] = "#" + hex;
+					}
+				});
+				$('#starCLR').ColorPicker({
+					color: localStorage["starCLR"],
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange: function (hsb, hex, rgb) {
+						$('#starCLR div').css('backgroundColor', '#' + hex);
+						localStorage["starCLR"] = "#" + hex;
+					}
+				});
+				$('#highCLR').ColorPicker({
+					color: localStorage["highCLR"],
+					onShow: function (colpkr) {
+						$(colpkr).fadeIn(500);
+						return false;
+					},
+					onHide: function (colpkr) {
+						$(colpkr).fadeOut(500);
+						return false;
+					},
+					onChange: function (hsb, hex, rgb) {
+						$('#highCLR div').css('backgroundColor', '#' + hex);
+						localStorage["highCLR"] = "#" + hex;
+					}
+				});
+			};
+			EYE.register(initLayout, 'init');
+		})(jQuery)
+	</script>
+	<script type="text/javascript">
+	  WebFontConfig = {
+		google: { families: [ 'Raleway:100' ] }
+	  };
+	  (function() {
+		var wf = document.createElement('script');
+		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+			'://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+		wf.type = 'text/javascript';
+		wf.async = 'true';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(wf, s);
+	  })();
+	</script>
+</head>
+<body>
+<div id="OPTwrap">
+	<div id="OPTside">
+		<h1>Minimalist</h1>
+		<ul>
+			<li><a href="#gen" class="" id="gen" onclick="navigate('gen')">General</a></li>
+			<li><a href="#not" class="" id="not" onclick="navigate('not')">Notifications</a></li>
+			<li><a href="#goo" class="" id="goo" onclick="navigate('goo')">Google Bar</a></li>
+			<li><a href="#hea" class="" id="hea" onclick="navigate('hea')">Header</a></li>
+			<li><a href="#mai" class="" id="mai" onclick="navigate('mai')">Main</a></li>
+			<li><a href="#gat" class="" id="gat" onclick="navigate('gat')">Navigation</a></li>
+			<li><a href="#cha" class="" id="cha" onclick="navigate('cha')">Chat</a></li>
+			<li><a href="#foo" class="" id="foo" onclick="navigate('foo')">Footer</a></li>
+			<li></li>
+			<li></li>
+			<li><a href="#mor" class="" id="mor" onclick="navigate('mor')">More</a></li>
+			<li><a href="#nge" class="" id="nge" onclick="navigate('nge')">Changes</a></li>
+			<li><a href="#sup" class="" id="sup" onclick="navigate('sup')">Support</a></li>
+			<li><a href="#abo" class="" id="abo" onclick="navigate('abo')">About</a></li>
+	</div>
+	<form name="preferences">
+	<div class="OPTmain" id="OPTgen">
+		<h1 class="dark">Gmail <span>| general</span></h1>
+		<section>
+			<h3>Options Icon</h3>
+			<div>
+				<input type="checkbox" id="mgicon" />
+					&nbsp;<label for="mgicon" title="<strong>NOT RECOMMENDED</strong><br />Only shows up in Gmail">Hide Minimalist Gmail options icon</label><br />
+			</div>
+		</section>
+		<section>
+			<h3>Custom Buttons</h3>
+				<div>
+					<input type="checkbox" id="BTN" />
+						&nbsp;<label for="BTN" title="Click color to change">Enable custom buttons</label><div class="J-Zh-I" id="testButton" style="-webkit-user-select: none; ">Test button</div>
+						<table>
+							<tr>
+								<td>Font</td>
+								<td><div id="BTNcolor"><div id="BTNcolorSUB" style="background-color: #000000;"></div></div></td>
+							</tr>
+							<tr>
+								<td>Border</td>
+								<td><div id="BTNborder"><div id="BTNborderSUB" style="background-color: #bbbbbb;"></div></div></td>
+							</tr>
+							<tr>
+								<td>Top</td>
+								<td><div id="BTNbottom"><div id="BTNbottomSUB" style="background-color: #f9f9f9;"></div></div></td>
+							</tr>
+							<tr>
+								<td>Bottom</td>
+								<td><div id="BTNtop"><div id="BTNtopSUB" style="background-color: #e3e3e3;"></div></div></td>
+							</tr>
+						</table>
+				</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTnot">
+		<h1 class="dark">Gmail <span>| notifications</span></h1>
+		<section>
+			<h3>Favicon</h3>
+			<div>
+				<input type="checkbox" id="favicon" />
+					&nbsp;<label for="favicon" title="">Enable favicon unread counter</label><br />
+			</div>
+		</section>
+		<section>
+			<h3>Desktop</h3>
+			<div>
+				<input type="checkbox" id="desktop" />
+					&nbsp;<label for="desktop" title="">Show desktop notifications</label><br />
+				<input type="checkbox" id="apps" />
+					&nbsp;<label for="apps" title="">Google Apps domain:</label><br />
+					<input type="text" id="appsURL" size="40" class="field" value="https://mail.google.com/a/yourdomain.com" /><br />
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTgoo">
+		<h1 class="dark">Gmail <span>| google bar</span></h1>
+		<section>
+			<h3>Hide All</h3>
+			<div>
+				<input type="checkbox" id="gbarH" />
+					&nbsp;<label for="gbarH" title="">Hide Google Bar</label> <em>[click tinted stripe to toggle]</em><br />
+			</div>
+		</section>
+		<section>
+			<h3>Google Links</h3>
+			<div>
+				<input type="checkbox" id="gbar" onClick="javascript:
+					if (document.preferences.f_activity_move.checked)
+						document.preferences.f_activity_show.checked = true;" />
+					&nbsp;<label for="gbar" title="">Hide Google links</label><br />
+				<input type="checkbox" id="cbar" />
+					&nbsp;<label for="cbar" title="">Enable custom links</label><br />
+				<input type="text" id="c_n_1" size="7" class="field" value="Gmail" />
+				<input type="text" id="c_u_1" size="30" class="field" value="http://mail.google.com" style="margin-left: 10px;" /><br />
+				<input type="text" id="c_n_2" size="7" class="field" value="Calendar" />
+				<input type="text" id="c_u_2" size="30" class="field" value="http://www.google.com/calendar" style="margin-left: 10px;" /><br />
+				<input type="text" id="c_n_3" size="7" class="field" value="Documents" />
+				<input type="text" id="c_u_3" size="30" class="field" value="http://docs.google.com" style="margin-left: 10px;" /><br />
+				<input type="text" id="c_n_4" size="7" class="field" value="Reader" />
+				<input type="text" id="c_u_4" size="30" class="field" value="http://www.google.com/reader" style="margin-left: 10px;" /><br />
+				<input type="text" id="c_n_5" size="7" class="field" value="Web" />
+				<input type="text" id="c_u_5" size="30" class="field" value="http://www.google.com" style="margin-left: 10px;" /><br />
+			</div>
+		</section>
+		<section>
+			<h3>Google User Bar</h3>
+			<div>
+				<input type="checkbox" id="user" />
+					&nbsp;<label for="user" title="">Hide signed in</label><br />
+				<input type="checkbox" id="labs" />
+					&nbsp;<label for="labs" title="">Hide Labs icon</label><br />
+				<input type="checkbox" id="settings" />
+					&nbsp;<label for="settings" title="">Hide Settings link</label><br />
+				<input type="checkbox" id="help" />
+					&nbsp;<label for="help" title="">Hide Help link</label><br />
+				<input type="checkbox" id="out" />
+					&nbsp;<label for="out" title="">Hide Sign out link</label><br />
+			</div>
+		<section>
+	</div>
+	<div class="OPTmain" id="OPThea">
+		<h1 class="dark">Gmail <span>| header</span></h1>
+		<section>
+			<h3>Hide All</h3>
+			<div>
+				<input type="checkbox" id="header" />
+					&nbsp;<label for="header" title="Everything between the Google bar and the inbox.<br />Click where header used to be to toggle.">Hide header</label> <em>[click tinted stripe to toggle]</em><br />
+			</div>
+		</section>
+		<section>
+			<h3>Logo</h3>
+			<div>
+				<input type="checkbox" id="logo" />
+					&nbsp;<label for="logo" title="143x59. Hosted images [Picasa, Flickr, etc]<br />Or Base64 [Google search for encoders]">Enable custom logo</label><br />
+					<input type="text" id="logoSRC" size="40" class="field" value="http://www.example.com/image.jpg" /><br />
+			</div>
+		</section>
+		<section>
+			<h3>Search</h3>
+			<div>
+				<input type="checkbox" id="s_all" />
+					&nbsp;<label for="s_all" title="Header and logo remain visible.">Hide all search</label><br />
+				<input type="checkbox" id="s_mail" />
+					&nbsp;<label for="s_mail" title="Just hides the button. Hit 'Enter' to search.">Hide mail search</label><br />
+				<input type="checkbox" id="s_web" />
+					&nbsp;<label for="s_web" title="">Hide web search</label><br />
+				<input type="checkbox" id="s_links" />
+					&nbsp;<label for="s_links" title="">Hide search tools</label><br />
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTmai">
+		<h1 class="dark">Gmail <span>| main</span></h1>
+		<section>
+			<h3>Row Highlighting</h3>
+			<div>
+				<input type="checkbox" id="starHigh" />
+					&nbsp;<label for="starHigh" title="Click color to change">Show starred item row highlights.</label> Color:
+					<div id="starCLR"><div id="starCLRsub" style="background-color: #ffcc00;"></div></div><br />
+				<input type="checkbox" id="high" />
+					&nbsp;<label for="high" title="Click color to change' if you're lost.">Show hover/select row highlights.</label> Color:
+					<div id="highCLR"><div id="highCLRsub" style="background-color: #0099ff;"></div></div><br />
+			</div>
+		</section>
+		<section>
+			<h3>Icons</h3>
+			<div>
+				<input type="checkbox" id="stars" />
+					&nbsp;<label for="stars" title="only hides icons on unstarred items.<br />Hit 's' to star an item">Hide star icons</label><br />
+				<input type="checkbox" id="attach" />
+				&nbsp;<label for="attach" title="Instead of paperclip, attachment icon<br />corresponds to type of attachment">Better attachment icons [Classic]</label><br />
+				<input type="checkbox" id="attachNew" />
+				&nbsp;<label for="attachNew" title="Instead of paperclip, attachment icon<br />corresponds to type of attachment">Better attachment icons [New Google Style]</label><br />
+				<input type="checkbox" id="attachC" />
+				&nbsp;<label for="attachC" title="<strong>CUSTOM ICON INPUT</strong><br />screenshot just an example">Better attachment icons [Custom]</label><br />
+					<a href="#" id="expandCtable" style="margin-left: 25px;;" onclick="javascript:document.getElementById('attachCtable').setAttribute('style','display: block');document.getElementById('expandCtable').setAttribute('style','display: none');">Show input table</a>
+					<table id="attachCtable" cellpadding="0" cellspacing="0">
+						<tr>
+							<td colspan="2" style="padding: 10px 0;"><em>Pick your own 16px square icons.<br />Input URL or Convert to Base64 <a href="http://www.greywyvern.com/code/php/binary2base64" target="_blank">via URL</a> or <a href="http://www.opinionatedgeek.com/dotnet/tools/base64encode/" target="_blank">via upload</a></em></td>
+						</tr>
+						<tr>
+							<td>Spreadsheets</td>
+							<td><input type="text" id="ci_1" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Audio</td>
+							<td><input type="text" id="ci_2" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Documents</td>
+							<td><input type="text" id="ci_3" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Web Pages</td>
+							<td><input type="text" id="ci_4" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Archives</td>
+							<td><input type="text" id="ci_5" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>PDF</td>
+							<td><input type="text" id="ci_6" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Images</td>
+							<td><input type="text" id="ci_7" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Presentations</td>
+							<td><input type="text" id="ci_8" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+						<tr>
+							<td>Video</td>
+							<td><input type="text" id="ci_9" size="30" class="field" value="data:image/png;base64,*" /></td>
+						<tr>
+					</table>
+			</div>
+		</section>
+		<section>
+			<h3>Toolbars</h3>
+			<div>
+				<input type="checkbox" id="pi" />
+					&nbsp;<label for="pi" title="<strong>This will fix bugs with specific tool removal</strong>"><em>Priority Inbox User? Check this box!</em></label><br />
+				<input type="checkbox" id="t_top" />
+					&nbsp;<label for="t_top" title="">Hide top toolbar</label><br />
+				<input type="checkbox" id="bottom" />
+					&nbsp;<label for="bottom" title="redundancy is redundant...">Hide bottom toolbar</label><br />
+					<br />
+					<input type="checkbox" id="t_check" />
+						&nbsp;<label for="t_check" title="Checkboxes next to messages will stay, just hides 'check all' option">Hide checkbox tools</label><br />
+					<input type="checkbox" id="t_arch" />
+						&nbsp;<label for="t_arch" title="">Hide Archive, Spam, Delete</label><br />
+					<input type="checkbox" id="t_move" />
+						&nbsp;<label for="t_move" title="">Hide Move to, Labels</label><br />
+					<input type="checkbox" id="t_actions" />
+						&nbsp;<label for="t_actions" title="">Hide More actions</label><br />
+					<input type="checkbox" id="t_refresh" />
+						&nbsp;<label for="t_refresh" title="">Hide Refresh</label><br />
+			</div>
+		</section>
+		<section style="height: 300px;">
+			<h3>Ads</h3>
+			<div>
+				<input type="checkbox" id="zads" />
+					&nbsp;<label for="zads" title="">Hide zero-inbox Google Reader ad</label><br />
+				<input type="checkbox" id="ads" />
+					&nbsp;<label for="ads" title="Hides sidebar completely. Print all, Forward all, etc<br />turned into icons and moved above message">Hide sidebar ads</label><br />
+				<input type="checkbox" id="bads" />
+					&nbsp;<label for="bads" title="Hides experimental ads">Hide bottom ads</label><br />
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTgat">
+		<h1 class="dark">Gmail <span>| navigation</span></h1>
+		<section>
+			<h3>Hide All</h3>
+			<div>
+				<input type="checkbox" id="nav" />
+					&nbsp;<label for="nav" title="<strong>NOTE:</strong> Incompatible with right-side chat">Hide navigation</label><br />
+			</div>
+		</section>
+		<section>
+			<h3>Top Section</h3>
+			<div>
+				<input type="checkbox" id="top" />
+					&nbsp;<label for="top" title=""><em>Hide top nav</em></label><br />
+				<input type="checkbox" id="mail" />
+					&nbsp;<label for="mail" title="">Hide mail link</label><br />
+				<input type="checkbox" id="contacts" />
+					&nbsp;<label for="contacts" title="">Hide contacts link</label><br />
+				<input type="checkbox" id="tasks" />
+					&nbsp;<label for="tasks" title="">Hide tasks link</label><br />
+			</div>
+		</section>
+		<section>
+			<h3>Middle Section</h3>
+			<div>
+				<input type="checkbox" id="middle" />
+					&nbsp;<label for="middle" title=""><em>Hide middle nav</em></label><br />
+				<input type="checkbox" id="compose" />
+					&nbsp;<label for="compose" title="">Hide compose button</label><br />
+				<input type="checkbox" id="spam" />
+					&nbsp;<label for="spam" title="">Hide spam count</label><br />
+				<input type="checkbox" id="buzz" />
+					&nbsp;<label for="buzz" title="">Hide buzz count</label><br />
+				<input type="checkbox" id="icons" />
+					&nbsp;<label for="icons" title="Just hides icons<br />item text remains">Hide icons</label><br />
+				<input type="checkbox" id="more" />
+					&nbsp;<label for="more" title="">Hide more link</label><br />
+			</div>
+		</section>
+		<section>
+			<h3>Invites</h3>
+			<div>
+				<input type="checkbox" id="invites" />
+					&nbsp;<label for="invites" title="">Hide invites</label><br />
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTcha">
+		<h1 class="dark">Gmail <span>| chat</span></h1>
+		<section>
+			<h3>Hide All</h3>
+			<div>
+				<input type="checkbox" id="chat" />
+					&nbsp;<label for="chat" title="Only hides chat list, can still<br />respond to incoming chats.">Hide chat</label><br />
+					
+			</div>
+		</section>
+		<section>
+			<h3>Elements</h3>
+			<div>
+				<input type="checkbox" id="c_search" />
+					&nbsp;<label for="c_search" title="">Hide search box </label><br />
+				<input type="checkbox" id="offline" />
+					&nbsp;<label for="offline" title="Offline contacts will<br />re-apear if they sign on.">Hide offline</label><br />
+				<input type="checkbox" id="status" />
+					&nbsp;<label for="status" title="">Hide statuses</label><br />
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTfoo">
+		<h1 class="dark">Gmail <span>| footer</span></h1>
+		<section>
+			<h3>General</h3>
+			<div>
+				<input type="checkbox" id="f_tips" />
+					&nbsp;<label for="f_tips" title="">Hide tips</label><br />
+				<input type="checkbox" id="f_options" />
+					&nbsp;<label for="f_options" title="Contains silly options">Hide options</label><br />
+				<input type="checkbox" id="f_legal" />
+					&nbsp;<label for="f_legal" title="Spoiler: Google owns everything">Hide legal</label>
+			</div>
+		</section>
+		<section>
+			<h3>Storage</h3>
+			<div>
+				<input type="checkbox" id="f_s_classic" />
+					&nbsp;<label for="f_s_classic" title="">Hide classic</label><br />
+				<input type="checkbox" id="f_s_label" />
+					&nbsp;<label for="f_s_label" title="">Hide label</label><br />
+				<input type="checkbox" id="f_s_graphic" />
+					&nbsp;<label for="f_s_graphic" title="">Hide graphic</label><br />
+				<input type="checkbox" id="f_s_verbose" />
+					&nbsp;<label for="f_s_verbose" title="">Hide verbose</label><br />
+				<input type="checkbox" id="f_s_menu" />
+					&nbsp;<label for="f_s_menu" title="">Hide menu</label><br />
+			</div>
+		</section>
+		<section>
+			<h3>Recent Activity</h3>
+			<div>
+				<input type="radio" class="radio" name="activity" id="f_activity_show" />
+					&nbsp;<label for="f_activity_show" title="">Show in footer</label><br />
+				<input type="radio" class="radio" name="activity" id="f_activity_hide" />
+					&nbsp;<label for="f_activity_hide" title="<strong>NOT RECOMMENDED:</strong> Hides recent activity completely">Hide completely</label><br />
+				<input type="radio" class="radio" name="activity" id="f_activity_move" onClick="javascript:
+					document.preferences.gbar.checked = true;" />
+					&nbsp;<label for="f_activity_move" title="<strong>Note:</strong> Replaces Navigation links in Google Bar with Recent Activity">Move to top</label><br />
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTmor">
+		<h1 class="dark">Gmail <span onclick="easterEgg()" style="cursor:pointer;">| more</span></h1>
+		<section>
+			<h3>Extensions</h3>
+			<div>
+				<ul>
+					<li><a href="https://chrome.google.com/webstore/detail/cfhdojbkjhnklbpkdaibdccddilifddb" target="_blank">Adblock Plus</a>: duh</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<h3>Settings</h3>
+			<div>
+				<ul>
+					<li><a href="https://mail.google.com/mail/#settings/webclips" target="_blank">Disable web clips</a>: mostly ads now anyway</li>
+					<li><a href="https://mail.google.com/mail/#settings/themes" target="_blank">Themes</a>: I recommend "Minimalist"</li>
+					<li><a href="https://mail.google.com/mail/#settings/labs" target="_blank">Gmail Labs</a>: great stuff in here, check it out
+						<ul>
+							<li><em>Caution: some labs features conflict with Minimalst Gmail. If you point them out I'll write exceptions for them.</em></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<h3>Bugs &amp; Ideas</h3>
+			<div>
+				I'm always looking for new ideas and bugs to fix. I usually deploy new features within 24 hours, and bugfixes within 6.
+				<ul>
+					<li>Ping me on Twitter: <a href="http://www.twitter.com/anstosa" target="blank">@anstosa</a></li>
+					<li>Email me: <a href="https://mail.google.com/mail/?view=cm&tf=0&to=ansel@anselsantosa.com&fs=1" target="_blank">ansel@anselsantosa.com</a></li>
+					<li>Leave a comment: <a href="https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb" target="_blank">Chrome Web Store</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTnge">
+		<h1 class="dark">Gmail <span>| changes</span></h1>
+		<section id="updated" style="display: none;">
+			<h3>Update</h3>
+			<div>
+				Minimalist Gmail has been updated!
+			</div>
+		</section>
+		<section>
+			<h3>Announcements</h3>
+			<div>
+				I'm expecting to hit 1000 users this weekend which means I'm prepping Minimalist Google Calendar for launch. Will tweet updates: <a href="http://www.twitter.com/anstosa" target="_blank">@anstosa</a>
+			</div>
+		</section>
+		<section>
+			<h3>What's new</h3>
+			<div>
+				Full changelog on <a href="https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb#cx-desc-button" target="_blank">Web Store page</a> [click "Read more"]
+				<ul>
+					<li>Hide Google Bar [click to toggle stripe]</li>
+					<li>Hide Google User bar elements [logged in, Labs icon, Settings, Help, Sign Out] [[good idea Sarah]]</li>
+					<li>Custom better attachment icons via URL or base64 input</li>
+					<li>Vertical scrollbar is not invisible if page fits within window [Gmail disabled it instead of hiding it] [[good idea CarlosJ]]</li>
+					<li>Hide "No new mail! Want to read updates from your favorite sites? Try Google Reader" message [good idea Sarah]</li>
+					<li>Minor graphics improvements and code optimization. See full changelog at the link above.</li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<h3>Rate &amp; Review</h3>
+			<div>
+				Like Minimalist Gmail? Please <a href="https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb" target="_blank">rate and review it in the Web Store!</a>
+			</div>
+		</section>
+		<section>
+			<h3>Bugs &amp; Ideas</h3>
+			<div>
+				I'm always looking for new ideas and bugs to fix. I usually deploy new features within 24 hours, and bugfixes within 6.
+				<ul>
+					<li>Ping me on Twitter: <a href="http://www.twitter.com/anstosa" target="blank">@anstosa</a></li>
+					<li>Email me: <a href="https://mail.google.com/mail/?view=cm&tf=0&to=ansel@anselsantosa.com&fs=1" target="_blank">ansel@anselsantosa.com</a></li>
+					<li>Leave a comment: <a href="https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb" target="_blank">Chrome Web Store</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTabo">
+		<h1 class="dark">Gmail <span>| about</span></h1>
+		<section>
+			<h3>Credits</h3>
+			<div>
+				<p>My name is <a href="http://www.anselsantosa.com">Ansel Santosa</a>. I created this extension because none of the others on the market would cut it for me. I wrote the vast majority of the code myself, but some things were perfect already:</p>
+				<ul>
+					<li><a href="http://userscripts.org/scripts/show/595" target="_blank">mailto script by Julien Couvreur</a></li>
+					<li><a href="http://userscripts.org/scripts/show/24430" target="_blank">favicon script by Peter Wooley </a></li>
+				</ul>
+			</div>
+		</section>
+		<section>
+			<h3>Rate &amp; Review</h3>
+			<div>
+				Like Minimalist Gmail? Please <a href="https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb" target="_blank">rate and review it in the Web Store!</a>
+			</div>
+		</section>
+		<section>
+			<h3>Donate</h3>
+			<div>
+				<p>This is a personal project and I am a full-time student, please <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4RVCM5TZRYBK8">support me by donating</a> so I can keep Minimalist Gmail up to date and competitive.</p>
+			</div>
+		</section>
+	</div>
+	<div class="OPTmain" id="OPTsup">
+		<h1 class="dark">Gmail <span>| support</span></h1>
+		<section>
+			<h3>Bugs &amp; Ideas</h3>
+			<div>
+				I'm always looking for new ideas and bugs to fix. I usually deploy new features within 24 hours, and bugfixes within 6.
+				<ul>
+					<li>Ping me on Twitter: <a href="http://www.twitter.com/anstosa" target="blank">@anstosa</a></li>
+					<li>Email me: <a href="https://mail.google.com/mail/?view=cm&tf=0&to=ansel@anselsantosa.com&fs=1" target="_blank">ansel@anselsantosa.com</a></li>
+					<li>Leave a comment: <a href="https://chrome.google.com/webstore/detail/oddhbkghjoccbljmagcgoklbfdjeiinb" target="_blank">Chrome Web Store</a></li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	</form>
+</div>
+<script type="text/javascript">
+	var hash = window.location.hash.substr(1);
+	if (hash == "update") {
+		document.getElementById("nge").setAttribute("class", "current");
+		document.getElementById("OPTnge").setAttribute("style", "display: block;");
+		document.getElementById("updated").setAttribute("style", "");
+		last = "nge";
+	} else if (hash == null || hash == "") {
+		document.getElementById("gen").setAttribute("class", "current");
+		document.getElementById("OPTgen").setAttribute("style", "display: block;");
+		last = "gen";
+	} else {
+		document.getElementById(hash).setAttribute("class", "current");
+		document.getElementById("OPT" + hash).setAttribute("style", "display: block;");
+		last = hash;
+	}
+</script>
+</body>
+</html>
