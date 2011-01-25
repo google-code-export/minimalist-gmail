@@ -1,3 +1,4 @@
+#labels Phase-Deploy,Phase-Support
 #support information and Frequently Asked Questions
 
 = F.A.Q =
