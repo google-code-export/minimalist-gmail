@@ -22,6 +22,13 @@
   # Select desired options (changes saved automatically)
   # *Refresh Gmail tab*
 
+=== Changing Options ===
+
+  # Click the options icon in the Gmail URL bar
+    * OR [wrench] > Tools > Extensions > Minimalist Gmail > Options
+  # Select desired options (changes saved automatically)
+  # *Refresh Gmail tab*
+
 === Bugs? ===
   # Check the Issues Tracker (link above)
   # If it's a known issue, star it so that I know you're waiting for a fix and to be notified when there are solutions
